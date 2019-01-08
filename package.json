@@ -243,7 +243,7 @@
     "domhandler": "^2.1.0",
     "domutils": "^1.1.6",
     "dot-prop": "^4.2.0",
-    "dotenv": "^6.0.0",
+    "dotenv": "^6.2.0",
     "dotenv-expand": "^4.2.0",
     "duplexer": "^0.1.1",
     "duplexify": "^3.6.1",
