@@ -11,28 +11,40 @@ class WeatherContainer extends Component {
     high: '',
     wind: '',
     input: "",
+    error: false
   }
 
-  componentDidMount() {
-    this.callApi()
-      .then(res => this.setState({
-        city: res["name"],
-        weather: res["weather"][0]["main"],
-        description: res["weather"][0]["description"],
-        humidity: res["main"]["humidity"],
-        low: res["main"]["temp_min"],
-        high: res["main"]["temp_max"],
-        wind: res["wind"]["speed"]}))
-      .catch(err => console.log(err));
-  }
-
-  callApi = async () => {
-    const response = await fetch('/weather');
-    const body = await response.json();
-    if (response.status !== 200){
-      throw Error(body.message)
-    };
-    return body;
+  getWeather = () => {
+    return fetch('/weather', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ input: this.state.input }),
+    })
+    .then(response => response.json())
+    .then(res => {
+      if (Object.keys(res).length !== 0) {
+        this.setState({
+         city: res["name"],
+         weather: res["weather"][0]["main"],
+         description: res["weather"][0]["description"],
+         humidity: res["main"]["humidity"],
+         low: res["main"]["temp_min"],
+         high: res["main"]["temp_max"],
+         wind: res["wind"]["speed"],
+         input: '',
+         error: false
+       })
+       } else {
+         this.setState({
+           error: true
+         })
+       }
+     })
+     .catch((error) => {
+       throw error
+     })
   };
 
   handleChange = event => {
@@ -41,18 +53,12 @@ class WeatherContainer extends Component {
     })
   }
 
-  handleSubmit = async event => {
+  handleSubmit = event => {
     event.preventDefault();
-    const response = await fetch('/weather', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ input: this.state.input }),
-    });
-    const body = await response.json();
+    this.getWeather()
+      // .then(response => response.json())
+      // .then(res => console.log(res))
   };
-
 
   render() {
     return(

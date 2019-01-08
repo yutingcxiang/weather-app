@@ -16,20 +16,15 @@ app.post('/weather', function(req, res){
   let city = req.body.input;
   let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${apiKey}&units=${units}`
 
-
   request(url, function(error, response, body) {
     if (error || response.statusCode !== 200){
-      console.log(error);
-      res.end();
+      res.send({});
     } else if (!error && response.statusCode === 200) {
-      console.log(body);
-      if (body) {
-        res.send(body);
-      }
+      res.send(body);
     }
   })
 });
 
-app.get('/weather', function (req, res) {
+app.get('/', function (req, res) {
   res.send("hello")
 })
