@@ -1,9 +1,12 @@
 import React from 'react';
 
 const Weather= (props) => {
+  var date = new Date();
+  var today = (date.getMonth() + 1) + '/' + date.getDate() + '/' +  date.getFullYear();
+
   return(
     <div>
-      <p>Weather here!</p>
+      <p>{today}</p>
     </div>
   )
 }
