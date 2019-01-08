@@ -10,6 +10,7 @@ class WeatherContainer extends Component {
     low: '',
     high: '',
     wind: '',
+    input: '',
   }
 
   componentDidMount() {
@@ -31,7 +32,6 @@ class WeatherContainer extends Component {
     if (response.status !== 200){
       throw Error(body.message)
     };
-    console.log(body);
     return body;
   };
 
@@ -42,11 +42,10 @@ class WeatherContainer extends Component {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ post: this.state.post }),
+      body: JSON.stringify({ input: this.state.input }),
     });
-    const body = await response.text();
+    const body = await response.json();
   };
-
 
 
   render() {
@@ -56,18 +55,14 @@ class WeatherContainer extends Component {
           <input
             type="text"
             placeholder="Enter location..."
-            value={this.state.post}
-            onChange={e => this.setState({ post: e.target.value })}
+            value={this.state.input}
+            onChange={e => this.setState({ input: e.target.value })}
           />
           <button type="submit">Submit</button>
         </form>
-        <p>{this.state.responseToPost}</p>
 
-        <Weather />
-
-        <p>{this.state.city}</p>
-        <p>{this.state.description}</p>
-
+        <Weather city={this.state.city} weather={this.state.weather} description={this.state.description}
+            humidity={this.state.humidity} low={this.state.low} high={this.state.high} wind={this.state.wind} />
       </div>
     )
   }
