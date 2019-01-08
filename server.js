@@ -10,16 +10,26 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
 
-app.get('/api/weather', (req, res) => {
-  request("http://api.openweathermap.org/data/2.5/weather?q=New York&units=imperial&APPID=f16eed3c3855a58355e9745081ed7e4c", (error, response, body) => {
-      if (!error && response.statusCode === 200) {
-        console.log(body);
+app.post('/weather', function(req, res){
+  let apiKey = 'f16eed3c3855a58355e9745081ed7e4c';
+  let units = 'imperial';
+  let city = req.body.input;
+  let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${apiKey}&units=${units}`
+
+
+  request(url, function(error, response, body) {
+    if (error || response.statusCode !== 200){
+      console.log(error);
+      res.end();
+    } else if (!error && response.statusCode === 200) {
+      console.log(body);
+      if (body) {
         res.send(body);
       }
-    })
+    }
+  })
 });
 
-app.post('/api/location', (req, res) => {
-  res.send(
-    `I received your POST request. This is what you sent me: ${req.body.post}`);
-});
+app.get('/weather', function (req, res) {
+  res.send("hello")
+})

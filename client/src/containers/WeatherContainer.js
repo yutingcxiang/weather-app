@@ -10,7 +10,7 @@ class WeatherContainer extends Component {
     low: '',
     high: '',
     wind: '',
-    input: '',
+    input: "",
   }
 
   componentDidMount() {
@@ -27,7 +27,7 @@ class WeatherContainer extends Component {
   }
 
   callApi = async () => {
-    const response = await fetch('/api/weather');
+    const response = await fetch('/weather');
     const body = await response.json();
     if (response.status !== 200){
       throw Error(body.message)
@@ -35,9 +35,15 @@ class WeatherContainer extends Component {
     return body;
   };
 
-  handleSubmit = async e => {
-    e.preventDefault();
-    const response = await fetch('/api/location', {
+  handleChange = event => {
+    this.setState({
+      input: event.target.value
+    })
+  }
+
+  handleSubmit = async event => {
+    event.preventDefault();
+    const response = await fetch('/weather', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -54,9 +60,9 @@ class WeatherContainer extends Component {
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"
-            placeholder="Enter location..."
+            placeholder="Enter city..."
             value={this.state.input}
-            onChange={e => this.setState({ input: e.target.value })}
+            onChange={this.handleChange}
           />
           <button type="submit">Submit</button>
         </form>
