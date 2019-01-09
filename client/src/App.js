@@ -8,10 +8,8 @@ class App extends Component {
     let today = (date.getMonth() + 1) + '/' + date.getDate() + '/' +  date.getFullYear();
 
     return (
-      <div className="App">
-        <div className="App-header">
-          <h1>{today}</h1>
-        </div>
+      <div className="App overlay">
+        <h1>{today}</h1>
         <WeatherContainer />
       </div>
     );
