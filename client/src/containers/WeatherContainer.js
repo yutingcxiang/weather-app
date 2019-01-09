@@ -77,7 +77,7 @@ class WeatherContainer extends Component {
         <br/>
         <LocationForm handleSubmit={this.handleSubmit} handleChange={this.handleChange} value={this.state.input}/>
         {this.state.error && <div><br/><p>Unable to locate you.</p>
-          <p>Please try again.</p></div>}
+          <p>Please enter a city.</p></div>}
         <br/>
         {this.state.city && <Weather city={this.state.city} description={this.state.description} humidity={this.state.humidity}
           low={this.state.low} high={this.state.high} wind={this.state.wind} />}

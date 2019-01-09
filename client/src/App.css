@@ -1,3 +1,5 @@
+/* CSS Reset */
+
 * {
   margin: 0;
   padding: 0;
@@ -12,6 +14,8 @@
   min-height: 100vh;
   color: white;
 }
+
+/* Backgrount Image and Overlay */
 
 html {
   background: url(./assets/city.png) no-repeat center center fixed;
@@ -37,9 +41,11 @@ html {
   position: fixed;
   top: 50%;
   left: 50%;
-  margin-top: -220px;
+  margin-top: -210px;
   margin-left: -115px;
 }
+
+/* Input Formatting from https://codepen.io/rikschennink/pen/VaqNgx */
 
 span,input {
 	border:2px solid rgba(255,255,255,.8);
@@ -74,6 +80,7 @@ canvas {
 
 input, body {
 	font-family: "Arial Rounded MT Bold","Helvetica Rounded",Arial,sans-serif;
+  font-size: 1.15em;
 }
 
 $placeholder-color:rgb(255,255,255);
@@ -109,4 +116,57 @@ html,body {
 
 body {
   line-height: 1.5;
+}
+
+/* Responsive Media Queries */
+
+/* Galaxy S5 */
+@media only screen
+  and (device-width : 320px)
+  and (device-height : 568px)
+  and (-webkit-device-pixel-ratio : 3) {
+  input, body{
+    font-size:0.9em;
+  }
+  .centered {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -200px;
+    margin-left: -90px;
+  }
+}
+
+
+/* iphone 6/7/8/8 Plus/X, Pixel 2/XL */
+@media only screen
+  and (max-device-width : 767px)
+  and (min-device-width : 321px) {
+    input, body{
+      font-size:1.15em;
+    }
+    .centered {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      margin-top: -190px;
+      margin-left: -120px;
+    }
+}
+
+
+/* ipad/ipad Pro */
+@media only screen
+  and (min-device-width : 768px)
+  and (max-device-width : 1024px) {
+    input, body{
+      font-size:1.50em;
+    }
+    .centered {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      margin-top: -270px;
+      margin-left: -200px;
+    }
 }
