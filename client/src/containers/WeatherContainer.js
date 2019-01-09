@@ -14,13 +14,22 @@ class WeatherContainer extends Component {
     error: false
   }
 
-  getWeather = () => {
+  componentDidMount() {
+    this.interval = setInterval(() =>
+      this.getWeather(this.state.city), 900000)
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
+
+  getWeather = (input) => {
     return fetch('/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ input: this.state.input }),
+      body: JSON.stringify({ input }),
     })
     .then(response => response.json())
     .then(res => {
@@ -54,7 +63,7 @@ class WeatherContainer extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.getWeather();
+    this.getWeather(this.state.input);
     event.target.reset();
   };
 
