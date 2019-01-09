@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
 
-app.post('/weather', function(req, res){
+app.post('/', function(req, res){
   let apiKey = process.env.REACT_APP_API_KEY;
   let units = 'imperial';
   let city = req.body.input;

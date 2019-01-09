@@ -15,7 +15,7 @@ class WeatherContainer extends Component {
   }
 
   getWeather = () => {
-    return fetch('/weather', {
+    return fetch('/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -34,8 +34,7 @@ class WeatherContainer extends Component {
          wind: res["wind"]["speed"],
          input: '',
          error: false
-       })
-       } else {
+       })} else {
          this.setState({
            input: '',
            error: true
@@ -55,15 +54,17 @@ class WeatherContainer extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.getWeather()
+    this.getWeather();
+    event.target.reset();
   };
 
   render() {
     return(
       <div>
         <LocationForm handleSubmit={this.handleSubmit} handleChange={this.handleChange} value={this.state.input}/>
-        <Weather city={this.state.city} description={this.state.description} humidity={this.state.humidity}
-          low={this.state.low} high={this.state.high} wind={this.state.wind} />
+        {this.state.city && <Weather city={this.state.city} description={this.state.description} humidity={this.state.humidity}
+          low={this.state.low} high={this.state.high} wind={this.state.wind} />}
+        {this.state.error && <div><p>Unable to locate you. Please try again.</p></div>}
       </div>
     )
   }

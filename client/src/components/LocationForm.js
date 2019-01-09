@@ -1,16 +1,6 @@
 import React from 'react';
 
 const LocationForm = (props) => {
-  let handleChange = event => {
-    this.setState({
-      input: event.target.value
-    })
-  }
-
-  let handleSubmit = event => {
-    event.preventDefault();
-    props.getWeather()
-  };
 
   return(
     <form onSubmit={props.handleSubmit}>
