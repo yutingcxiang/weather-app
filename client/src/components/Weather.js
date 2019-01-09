@@ -1,18 +1,13 @@
 import React from 'react';
 
-const Weather= (props) => {
-  var date = new Date();
-  var today = (date.getMonth() + 1) + '/' + date.getDate() + '/' +  date.getFullYear();
-
+const Weather = (props) => {
   return(
     <div>
-      <h2>{today}</h2>
-      <p>{props.city}</p>
+      <h3>{props.city}</h3>
       <p>{props.description}</p>
-      <p>{props.weather}</p>
-      <p>{props.humidity}</p>
       <p>{props.low}</p>
       <p>{props.high}</p>
+      <p>{props.humidity}</p>
       <p>{props.wind}</p>
     </div>
   )

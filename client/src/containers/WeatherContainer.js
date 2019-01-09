@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import Weather from '../components/Weather.js';
+import LocationForm from '../components/LocationForm.js';
 
 class WeatherContainer extends Component {
   state = {
     city: '',
-    weather: '',
     description: '',
     humidity: '',
     low: '',
@@ -27,7 +27,6 @@ class WeatherContainer extends Component {
       if (Object.keys(res).length !== 0) {
         this.setState({
          city: res["name"],
-         weather: res["weather"][0]["main"],
          description: res["weather"][0]["description"],
          humidity: res["main"]["humidity"],
          low: res["main"]["temp_min"],
@@ -38,6 +37,7 @@ class WeatherContainer extends Component {
        })
        } else {
          this.setState({
+           input: '',
            error: true
          })
        }
@@ -56,29 +56,17 @@ class WeatherContainer extends Component {
   handleSubmit = event => {
     event.preventDefault();
     this.getWeather()
-      // .then(response => response.json())
-      // .then(res => console.log(res))
   };
 
   render() {
     return(
       <div>
-        <form onSubmit={this.handleSubmit}>
-          <input
-            type="text"
-            placeholder="Enter city..."
-            value={this.state.input}
-            onChange={this.handleChange}
-          />
-          <button type="submit">Submit</button>
-        </form>
-
-        <Weather city={this.state.city} weather={this.state.weather} description={this.state.description}
-            humidity={this.state.humidity} low={this.state.low} high={this.state.high} wind={this.state.wind} />
+        <LocationForm handleSubmit={this.handleSubmit} handleChange={this.handleChange} value={this.state.input}/>
+        <Weather city={this.state.city} description={this.state.description} humidity={this.state.humidity}
+          low={this.state.low} high={this.state.high} wind={this.state.wind} />
       </div>
     )
   }
 }
-
 
 export default WeatherContainer;

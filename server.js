@@ -28,5 +28,5 @@ app.post('/weather', function(req, res){
 });
 
 app.get('/', function (req, res) {
-  res.send("hello")
+  res.send('root')
 })
