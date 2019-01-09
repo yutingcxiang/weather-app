@@ -6,11 +6,11 @@ const LocationForm = (props) => {
     <form onSubmit={props.handleSubmit}>
       <input
         type="text"
-        placeholder="Enter city..."
+        placeholder="Enter City..."
         value={props.input}
         onChange={props.handleChange}
       />
-      <button type="submit">Submit</button>
+      <button type="submit"></button>
     </form>
   )
 }

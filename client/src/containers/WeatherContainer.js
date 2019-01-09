@@ -59,12 +59,19 @@ class WeatherContainer extends Component {
   };
 
   render() {
+    let date = new Date();
+    let today = (date.getMonth() + 1) + '/' + date.getDate() + '/' +  date.getFullYear();
+
     return(
-      <div>
+      <div className="centered">
+        <h1>{today}</h1>
+        <br/>
         <LocationForm handleSubmit={this.handleSubmit} handleChange={this.handleChange} value={this.state.input}/>
+        {this.state.error && <div><br/><p>Unable to locate you.</p>
+          <p>Please try again.</p></div>}
+        <br/>
         {this.state.city && <Weather city={this.state.city} description={this.state.description} humidity={this.state.humidity}
           low={this.state.low} high={this.state.high} wind={this.state.wind} />}
-        {this.state.error && <div><p>Unable to locate you. Please try again.</p></div>}
       </div>
     )
   }

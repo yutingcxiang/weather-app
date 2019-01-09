@@ -5,8 +5,8 @@ const Weather = (props) => {
 
   return(
     <div>
-      <h2>{props.city}</h2>
-      <h4>{capitalizedDesc}</h4>
+      <h1>{props.city}</h1>
+      <h2>{capitalizedDesc}</h2>
       <p>High: {props.high} °F</p>
       <p>Low: {props.low} °F</p>
       <p>Humidity: {props.humidity} %</p>
