@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Weather from '../components/Weather.js';
+import Today from '../components/Today.js';
 import LocationForm from '../components/LocationForm.js';
 
 class WeatherContainer extends Component {
@@ -68,12 +69,11 @@ class WeatherContainer extends Component {
   };
 
   render() {
-    let date = new Date();
-    let today = (date.getMonth() + 1) + '/' + date.getDate() + '/' +  date.getFullYear();
+
 
     return(
       <div className="centered">
-        <h1>{today}</h1>
+        <Today />
         <br/>
         <LocationForm handleSubmit={this.handleSubmit} handleChange={this.handleChange} value={this.state.input}/>
         {this.state.error && <div><br/><p>Unable to locate you.</p>
