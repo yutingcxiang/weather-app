@@ -5,12 +5,8 @@ import LocationForm from '../components/LocationForm.js';
 
 class WeatherContainer extends Component {
   state = {
+    weather: {},
     city: '',
-    description: '',
-    humidity: '',
-    low: '',
-    high: '',
-    wind: '',
     input: "",
     error: false
   }
@@ -25,7 +21,7 @@ class WeatherContainer extends Component {
   }
 
   getWeather = (input) => {
-    return fetch('/', {
+    return fetch('/weather', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -36,14 +32,10 @@ class WeatherContainer extends Component {
     .then(res => {
       if (Object.keys(res).length !== 0) {
         this.setState({
-         city: res["name"],
-         description: res["weather"][0]["description"],
-         humidity: res["main"]["humidity"],
-         low: res["main"]["temp_min"],
-         high: res["main"]["temp_max"],
-         wind: res["wind"]["speed"],
-         input: '',
-         error: false
+          weather: res,
+          city: res["name"],
+          input: '',
+          error: false
        })} else {
          this.setState({
            input: '',
@@ -79,8 +71,14 @@ class WeatherContainer extends Component {
         {this.state.error && <div><br/><p>Unable to locate you.</p>
           <p>Please enter a city.</p></div>}
         <br/>
-        {this.state.city && <Weather city={this.state.city} description={this.state.description} humidity={this.state.humidity}
-          low={this.state.low} high={this.state.high} wind={this.state.wind} />}
+        {this.state.city && <Weather
+          city={this.state.city}
+          temperature={this.state.weather["main"]["temp"]}
+          description={this.state.weather["weather"][0]["description"]}
+          humidity={this.state.weather["main"]["humidity"]}
+          low={this.state.weather["main"]["temp_min"]}
+          high={this.state.weather["main"]["temp_max"]}
+          wind={this.state.weather["wind"]["speed"]} />}
       </div>
     )
   }
