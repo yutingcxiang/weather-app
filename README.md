@@ -2,9 +2,7 @@
 
 A simple app for checking your local weather.
 
-Built with OpenWeatherMap [OpenWeatherMap](https://openweathermap.org/api).
-
-Site:
+Built with [OpenWeatherMap](https://openweathermap.org/api).
 
 ## Installation
 
@@ -18,9 +16,7 @@ Install dependencies and start server:
 
    ```
    cd weather-app
-   bundle install
-   cd client
-   npm install
+   yarn
    yarn dev
    ```
 
