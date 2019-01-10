@@ -38,6 +38,7 @@ class WeatherContainer extends Component {
           error: false
        })} else {
          this.setState({
+           city: '',
            input: '',
            error: true
          })
@@ -68,8 +69,8 @@ class WeatherContainer extends Component {
         <Today />
         <br/>
         <LocationForm handleSubmit={this.handleSubmit} handleChange={this.handleChange} value={this.state.input}/>
-        {this.state.error && <div><br/><p>Unable to locate you.</p>
-          <p>Please enter a city.</p></div>}
+        {this.state.error && <div className="error"><br/><p className="highlight">Unable to locate you.</p>
+          <p className="highlight">Please enter a city.</p></div>}
         <br/>
         {this.state.city && <Weather
           city={this.state.city}

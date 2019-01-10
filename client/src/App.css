@@ -45,6 +45,17 @@ html {
   margin-left: -115px;
 }
 
+/* Error message formatting */
+
+.error {
+  color: white;
+  font-size: 0.8em;
+}
+
+.highlight {
+  background: rgba(0,0,0,.5);
+}
+
 /* Input Formatting from https://codepen.io/rikschennink/pen/VaqNgx */
 
 span,input {
