@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Weather from '../components/Weather.js';
 import Today from '../components/Today.js';
+import Error from '../components/Error.js';
 import LocationForm from '../components/LocationForm.js';
 
 class WeatherContainer extends Component {
@@ -62,15 +63,12 @@ class WeatherContainer extends Component {
   };
 
   render() {
-
-
     return(
       <div className="centered">
         <Today />
         <br/>
         <LocationForm handleSubmit={this.handleSubmit} handleChange={this.handleChange} value={this.state.input}/>
-        {this.state.error && <div className="error"><br/><p className="highlight">Unable to locate you.</p>
-          <p className="highlight">Please enter a city.</p></div>}
+        {this.state.error && <Error />}
         <br/>
         {this.state.city && <Weather
           city={this.state.city}

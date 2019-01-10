@@ -6,7 +6,7 @@ const LocationForm = (props) => {
     <form onSubmit={props.handleSubmit}>
       <input
         type="text"
-        placeholder="Enter City..."
+        placeholder="Enter City"
         value={props.input}
         onChange={props.handleChange}
       />
