@@ -1042,7 +1042,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "client": "cd client && npm start",
-    "server": "nodemon server.js",
+    "server": "nodemon index.js",
     "dev": "concurrently \"npm run client\" \"npm run server\"",
     "heroku-postbuild": "cd client && npm install && npm run build"
   },
