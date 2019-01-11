@@ -22,13 +22,13 @@ class WeatherContainer extends Component {
     clearInterval(this.interval);
   }
 
-  getWeather = (input) => {
+  getWeather = (query) => {
     return fetch('/weather', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ input }),
+      body: JSON.stringify({ query }),
     })
     .then(response => response.json())
     .then(res => {
