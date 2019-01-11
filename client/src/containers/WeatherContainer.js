@@ -13,6 +13,7 @@ class WeatherContainer extends Component {
   }
 
   componentDidMount() {
+    // Fetch updated weather every 15 minutes
     this.interval = setInterval(() =>
       this.getWeather(this.state.weather), 900000)
   }
@@ -31,13 +32,16 @@ class WeatherContainer extends Component {
     })
     .then(response => response.json())
     .then(res => {
+      //If invalid city, an empty object is returned
       if (Object.keys(res).length !== 0) {
+        // Successful query handling
         this.setState({
           weather: res,
           city: res["name"],
           error: false,
           query: '',
        })} else {
+         // Error query handling
          this.setState({
            weather: null,
            city: '',
@@ -60,17 +64,14 @@ class WeatherContainer extends Component {
     this.setState({
       query: '',
     })
-    // event.target.reset();
   };
 
   render() {
     return(
       <div className="centered">
-        <Today />
-        <br/>
+        <Today /><br/>
         <LocationForm handleSubmit={this.handleSubmit} handleChange={this.handleChange} query={this.state.query}/>
-        {this.state.error && <Error />}
-        <br/>
+        {this.state.error && <Error />}<br/>
         {this.state.weather && <Weather
           city={this.state.weather["name"]}
           temperature={this.state.weather["main"]["temp"]}
