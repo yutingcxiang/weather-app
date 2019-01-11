@@ -16,8 +16,8 @@ Install dependencies and start server:
 
    ```
    cd weather-app
-   yarn
-   yarn dev
+   cd client && npm install
+   npm run dev
    ```
 
 Navigate to the url in your browser:
