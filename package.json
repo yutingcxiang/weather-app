@@ -1041,7 +1041,7 @@
     "test": "mocha || true",
     "start": "node index.js",
     "build": "react-scripts build",
-    "client": "cd client && yarn start",
+    "client": "cd client && npm start",
     "server": "nodemon server.js",
     "dev": "concurrently \"npm run client\" \"npm run server\"",
     "heroku-postbuild": "cd client && npm install && npm run build"
