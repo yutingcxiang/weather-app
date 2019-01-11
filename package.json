@@ -1030,10 +1030,12 @@
     "yargs-parser": "^9.0.2"
   },
   "devDependencies": {
-    "concurrently": "^4.1.0"
+    "chai": "^4.2.0",
+    "concurrently": "^4.1.0",
+    "mocha": "^5.2.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha || true",
     "start": "node server.js",
     "client": "cd client && yarn start",
     "server": "nodemon server.js",

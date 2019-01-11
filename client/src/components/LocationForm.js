@@ -3,15 +3,17 @@ import React from 'react';
 const LocationForm = (props) => {
 
   return(
-    <form onSubmit={props.handleSubmit}>
-      <input
-        type="text"
-        placeholder="Enter City"
-        value={props.input}
-        onChange={props.handleChange}
-      />
-      <button type="submit"></button>
-    </form>
+    <div>
+      <form onSubmit={props.handleSubmit}>
+        <input
+          type="text"
+          value={props.query}
+          onChange={props.handleChange}
+          placeholder="Enter City"
+        />
+        <button type="submit"></button>
+      </form>
+    </div>
   )
 }
 

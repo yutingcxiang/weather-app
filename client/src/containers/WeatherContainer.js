@@ -6,15 +6,15 @@ import LocationForm from '../components/LocationForm.js';
 
 class WeatherContainer extends Component {
   state = {
-    weather: {},
+    weather: null,
     city: '',
-    input: "",
-    error: false
+    error: false,
+    query: '',
   }
 
   componentDidMount() {
     this.interval = setInterval(() =>
-      this.getWeather(this.state.city), 900000)
+      this.getWeather(this.state.weather), 900000)
   }
 
   componentWillUnmount() {
@@ -35,31 +35,32 @@ class WeatherContainer extends Component {
         this.setState({
           weather: res,
           city: res["name"],
-          input: '',
-          error: false
+          error: false,
+          query: '',
        })} else {
          this.setState({
+           weather: null,
            city: '',
-           input: '',
-           error: true
+           error: true,
+           query: '',
          })
        }
-     })
-     .catch((error) => {
-       throw error
      })
   };
 
   handleChange = event => {
     this.setState({
-      input: event.target.value
+      query: event.target.value
     })
   }
 
   handleSubmit = event => {
     event.preventDefault();
-    this.getWeather(this.state.input);
-    event.target.reset();
+    this.getWeather(this.state.query)
+    this.setState({
+      query: '',
+    })
+    // event.target.reset();
   };
 
   render() {
@@ -67,11 +68,11 @@ class WeatherContainer extends Component {
       <div className="centered">
         <Today />
         <br/>
-        <LocationForm handleSubmit={this.handleSubmit} handleChange={this.handleChange} value={this.state.input}/>
+        <LocationForm handleSubmit={this.handleSubmit} handleChange={this.handleChange} query={this.state.query}/>
         {this.state.error && <Error />}
         <br/>
-        {this.state.city && <Weather
-          city={this.state.city}
+        {this.state.weather && <Weather
+          city={this.state.weather["name"]}
           temperature={this.state.weather["main"]["temp"]}
           description={this.state.weather["weather"][0]["description"]}
           humidity={this.state.weather["main"]["humidity"]}
