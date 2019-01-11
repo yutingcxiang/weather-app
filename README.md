@@ -4,6 +4,8 @@ A simple app for checking your local weather.
 
 Built with [OpenWeatherMap](https://openweathermap.org/api).
 
+Site: https://react-node-weather-app.herokuapp.com/
+
 ## Installation
 
 Fork and clone this repo:
