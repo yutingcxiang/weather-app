@@ -8,9 +8,8 @@
     "node": "11.6.0"
   },
   "scripts": {
-    "client": "node start-index.js",
-    "server": "node index.js",
-    "start": "concurrently \"npm run client\" \"npm run server\"",
+    "start": "node server.js",
+    "dev": "concurrently \"npm run client\" \"npm run server\"",
     "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "author": "",
@@ -21,6 +20,7 @@
     "dotenv": "^6.2.0",
     "express": "^4.16.4",
     "mocha": "^5.2.0",
+    "path": "^0.12.7",
     "request": "^2.88.0"
   }
 }
