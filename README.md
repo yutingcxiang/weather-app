@@ -1,6 +1,6 @@
 ## Node Weather
 
-A weather app for receiving current weather conditions. Enter a city to get current conditions and updated weather every 15 minutes.
+A weather app for current weather conditions. Enter a city to get current conditions and updated weather every 15 minutes.
 
 Built with [OpenWeatherMap](https://openweathermap.org/api).
 
