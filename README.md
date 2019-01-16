@@ -1,6 +1,6 @@
 ## Node Weather
 
-An app for checking your current local weather.
+A weather app for receiving current weather conditions. Enter a city to get current conditions and updated weather every 15 minutes.
 
 Built with [OpenWeatherMap](https://openweathermap.org/api).
 
