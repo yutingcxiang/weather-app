@@ -17,15 +17,16 @@ Fork and clone this repo:
 Install dependencies and start server:
 
    ```
-   cd weather-app
+   cd weather-app && npm install
    cd client && npm install
-   npm run dev
+   
+   npm start
    ```
 
 Navigate to the url in your browser:
 
    ```
-   http://localhost:3000/
+   http://localhost:8000/
    ```
 
 ## Contributing
