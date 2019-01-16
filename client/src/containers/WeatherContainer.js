@@ -6,7 +6,7 @@ import LocationForm from '../components/LocationForm.js';
 
 class WeatherContainer extends Component {
   state = {
-    weather: null,
+    weather: '',
     city: '',
     error: false,
     query: '',
