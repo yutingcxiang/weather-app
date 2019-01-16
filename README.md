@@ -1,6 +1,6 @@
 ## Node-Weather
 
-A simple app for checking your local weather.
+An app for checking your current local weather.
 
 Built with [OpenWeatherMap](https://openweathermap.org/api).
 
