@@ -1,4 +1,4 @@
-## Node-Weather
+## Node Weather
 
 An app for checking your current local weather.
 
