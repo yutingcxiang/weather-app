@@ -4,10 +4,6 @@
   "description": "",
   "main": "server.js",
   "devDependencies": {
-    "chai": "^4.2.0",
-    "concurrently": "^4.1.0",
-    "mocha": "^5.2.0",
-    "dotenv": "^6.2.0"
   },
   "engines": {
     "node": "11.6.0"
@@ -20,5 +16,11 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {}
+  "dependencies": {
+    "express": "^4.16.4",
+    "chai": "^4.2.0",
+    "concurrently": "^4.1.0",
+    "mocha": "^5.2.0",
+    "dotenv": "^6.2.0"
+  }
 }
