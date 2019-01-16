@@ -26,10 +26,6 @@ app.post('/weather', function(req, res){
   })
 });
 
-app.get('/', function (req, res) {
-  res.send('root')
-})
-
 app.use(express.static(path.join(__dirname, 'client/build')))
 
 app.get('*', (request, response) => {
