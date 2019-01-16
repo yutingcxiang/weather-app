@@ -30,12 +30,10 @@ app.get('/', function (req, res) {
   res.send('root')
 })
 
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, 'client/build')))
-}
+app.use(express.static(path.join(__dirname, 'client/build')))
 
 app.get('*', (request, response) => {
-  response.sendFile(path.join(__dirname+'/client/build/index.html'))
+
 })
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
