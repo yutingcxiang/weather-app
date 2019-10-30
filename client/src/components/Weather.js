@@ -10,7 +10,7 @@ const Weather = (props) => {
     <div>
       <h1>{props.city}</h1>
       <h2>{temp}°F</h2>
-      <h3>{description}</h3>
+      <h3>{capitalizedDesc}</h3>
       <p>High: {high}°F</p>
       <p>Low: {low}°F</p>
       <p>Humidity: {props.humidity}%</p>
