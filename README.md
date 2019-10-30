@@ -8,7 +8,7 @@ Built with [OpenWeatherMap](https://openweathermap.org/api).
 
 https://react-node-weather-app.herokuapp.com/
 
-![node-weather](https://i.imgur.com/283eX09.png)
+![node-weather](https://i.imgur.com/283eX09m.png)
 
 ## Installation
 
