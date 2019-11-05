@@ -21,11 +21,9 @@ Fork and clone this repo:
 Install dependencies and start server:
 
    ```
-   cd weather-app && npm install
-   cd client && npm install
-   cd ..
+   npm install && npm run install-client
    
-   npm start
+   npm run dev
    ```
 
 Navigate to the url in your browser:
