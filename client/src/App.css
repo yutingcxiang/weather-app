@@ -38,11 +38,12 @@ html {
 }
 
 .centered {
-  position: fixed;
+  margin: 0;
+  position: absolute;
   top: 50%;
   left: 50%;
-  margin-top: -210px;
-  margin-left: -115px;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 /* Error message formatting */
@@ -139,13 +140,6 @@ body {
   input, body{
     font-size:0.9em;
   }
-  .centered {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    margin-top: -200px;
-    margin-left: -90px;
-  }
 }
 
 
@@ -157,13 +151,6 @@ body {
     input, body{
       font-size:0.9em;
     }
-    .centered {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      margin-top: -120px;
-      margin-left: -100px;
-    }
 }
 
 
@@ -174,12 +161,5 @@ body {
   and (max-device-width : 1024px) {
     input, body{
       font-size:1.50em;
-    }
-    .centered {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      margin-top: -270px;
-      margin-left: -150px;
     }
 }
