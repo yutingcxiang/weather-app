@@ -21,7 +21,7 @@ Install dependencies and start server:
    cd client && npm install
    cd ..
    
-   npm start
+   npm run dev
    ```
 
 Navigate to the url in your browser:

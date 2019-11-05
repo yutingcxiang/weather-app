@@ -152,18 +152,20 @@ body {
 /* iphone 6/7/8/8 Plus/X, Pixel 2/XL */
 @media only screen
   and (max-device-width : 767px)
-  and (min-device-width : 321px) {
+  and (min-device-width : 321px) 
+  and (orientation : landscape) {
     input, body{
-      font-size:1.15em;
+      font-size:0.9em;
     }
     .centered {
       position: fixed;
       top: 50%;
       left: 50%;
-      margin-top: -190px;
-      margin-left: -120px;
+      margin-top: -120px;
+      margin-left: -100px;
     }
 }
+
 
 
 /* ipad/ipad Pro */
@@ -178,6 +180,6 @@ body {
       top: 50%;
       left: 50%;
       margin-top: -270px;
-      margin-left: -200px;
+      margin-left: -150px;
     }
 }
