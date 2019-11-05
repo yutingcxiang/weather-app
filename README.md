@@ -4,7 +4,11 @@ A weather app for current weather conditions. Enter a city to get current condit
 
 Built with [OpenWeatherMap](https://openweathermap.org/api).
 
-Site: https://react-node-weather-app.herokuapp.com/
+## Site
+
+https://react-node-weather-app.herokuapp.com/
+
+![node-weather](https://i.imgur.com/283eX09m.png)
 
 ## Installation
 
