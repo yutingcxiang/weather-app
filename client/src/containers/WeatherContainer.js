@@ -23,7 +23,7 @@ class WeatherContainer extends Component {
   }
 
   getWeather = (query) => {
-    return fetch('/weather', {
+    return fetch('/api/weather', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
